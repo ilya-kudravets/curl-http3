@@ -1,13 +1,11 @@
 # curl-http3
-[![](https://img.shields.io/docker/pulls/ymuski/curl-http3?style=flat-square)](https://hub.docker.com/r/ymuski/curl-http3)
-
 Docker image of `curl` compiled with  `BoringSSL` and `quiche/0.17.2` for **HTTP3 support**, `httpstat` for visualization.
 
 Link for [curl + http3 manual](https://github.com/curl/curl/blob/master/docs/HTTP3.md#quiche-version)
 
 ## Usage
 
-`docker run -it --rm ymuski/curl-http3 curl -V`
+`docker run -it --rm ghcr.io/ilya-kudravets/curl-http3 curl -V`
 ```
 curl 8.1.2-DEV (x86_64-pc-linux-gnu) libcurl/8.1.2-DEV BoringSSL quiche/0.17.2
 Release-Date: [unreleased]
@@ -16,9 +14,9 @@ Features: alt-svc AsynchDNS HSTS HTTP3 HTTPS-proxy IPv6 Largefile NTLM NTLM_WB S
 ```
 
 
-`docker run -it --rm ymuski/curl-http3 curl -IL https://blog.cloudflare.com --http3`
+`docker run -it --rm ghcr.io/ilya-kudravets/curl-http3 curl -IL https://blog.cloudflare.com --http3`
 
-`docker run -it --rm ymuski/curl-http3 curl -IL https://yurets.pro --http3`
+`docker run -it --rm ghcr.io/ilya-kudravets/curl-http3 curl -IL https://yurets.pro --http3`
 
 ```
 
@@ -39,9 +37,9 @@ alt-svc: h3=":443"; ma=86400
 
 ### httpstat support
 
-`docker run -it --rm ymuski/curl-http3 ./httpstat.sh -ILv https://blog.cloudflare.com --http3`
+`docker run -it --rm ghcr.io/ilya-kudravets/curl-http3 ./httpstat.sh -ILv https://blog.cloudflare.com --http3`
 
-`docker run -it --rm ymuski/curl-http3 ./httpstat.sh -ILv https://yurets.pro --http3`
+`docker run -it --rm ghcr.io/ilya-kudravets/curl-http3 ./httpstat.sh -ILv https://yurets.pro --http3`
 
 ![](httpstat.png?raw=true "HTTPSTAT H3")
 
@@ -49,9 +47,9 @@ alt-svc: h3=":443"; ma=86400
 ## Build
 
 ```
-docker buildx build --platform linux/amd64  -t ymuski/curl-http3:latest -t ymuski/curl-http3:8.1.2 . --push
+docker buildx build --platform linux/amd64  -t ghcr.io/ilya-kudravets/curl-http3:latest -t ghcr.io/ilya-kudravets/curl-http3:8.1.2 . --push
 
 # quiche fails to compile for arm
-docker buildx build --platform linux/arm,linux/arm64,linux/amd64  -t ymuski/curl-http3:latest -t ymuski/curl-http3:8.1.2 . --push
+docker buildx build --platform linux/arm,linux/arm64,linux/amd64  -t ghcr.io/ilya-kudravets/curl-http3:latest -t ghcr.io/ilya-kudravets/curl-http3:8.1.2 . --push
 
 ```
