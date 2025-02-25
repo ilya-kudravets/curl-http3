@@ -1,6 +1,6 @@
 FROM debian:12 AS builder
 
-LABEL maintainer="Yury Muski <muski.yury@gmail.com>"
+LABEL org.opencontainers.image.source = "https://github.com/ilya-kudravets/curl-http3"
 
 WORKDIR /opt
 
